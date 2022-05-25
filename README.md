@@ -4,6 +4,10 @@
 	
 
 # Kufic
+
+[![version](https://img.shields.io/badge/version-Alpha-yellow.svg)](https://github.com/kuficdraw/kuficdraw)
+![GitHub all releases](https://img.shields.io/github/downloads/kuficdraw/kuficdraw/total?color=green&label=Total%20Downloads)
+
 Tiny app for drawing square Kufic.
 
 <div align="right">
