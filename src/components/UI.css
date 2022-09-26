@@ -1,0 +1,60 @@
+.ui {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+.ui .ribbon {
+  width: 100%;
+  /* position: fixed; */
+  top: 0px;
+}
+
+.ui .header {
+  overflow: hidden;
+  padding: 0px 20px;
+  width: 100%;
+  height: var(--ui-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #eee;
+  border-bottom: var(--border);
+}
+
+.ui .header .appName {
+  font-size: larger;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.ui .logo {
+  opacity: 0.8;
+  padding: 5px;
+  background-color: #eee;
+  position: fixed;
+  width: 80px;
+  left: 10px;
+  bottom: calc(var(--ui-height) + 10px);
+}
+
+.ui .properites {
+  /* position: fixed; */
+  display: flex;
+  background-color: #eee;
+  height: 100%;
+  width: 120px;
+  border-left: var(--border);
+}
+.ui .footer {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  height: var(--ui-height);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  background-color: #eee;
+  border-top: var(--border);
+}

@@ -1,0 +1,25 @@
+.properitesSection {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  flex-direction: row;
+}
+.properitesSection div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.properitesSection div input[type="color"] {
+  border: 0px;
+  outline: 0px;
+  width: 50px;
+  /* height: 50px; */
+  aspect-ratio: 1/1;
+}
+
+input {
+  text-align: center;
+  width: 100%;
+}

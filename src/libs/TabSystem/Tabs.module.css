@@ -1,0 +1,113 @@
+.tabSystem {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-rows: 30px 70px;
+  flex-direction: column;
+}
+.tabSystem .tabs {
+  overflow: hidden;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  border-bottom: var(--border);
+  /* font-weight: 600; */
+}
+.tabSystem .tabs::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+.tabSystem .tabs::-webkit-scrollbar-track {
+  width: 0px;
+  height: 0px;
+}
+.tabSystem .tabs::-webkit-scrollbar-thumb {
+  width: 0px;
+  height: 0px;
+}
+.tabSystem .tabs::-webkit-scrollbar-corner {
+  width: 0px;
+  height: 0px;
+}
+.tabSystem .tabs > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 70px;
+  padding: 0px 10px;
+  cursor: pointer;
+}
+.tabSystem .tabs > div > li {
+}
+.tabSystem .tabs > div:first-child {
+  margin: 0 1em;
+  min-width: 110px;
+}
+.tabSystem .tabs > div.current {
+  position: relative;
+  background: var(--color-secondary);
+  color: #eee;
+  font-weight: bold;
+}
+.tabSystem .tabs > div:hover:not(.current) {
+  background: var(--hover-color);
+}
+.tabSystem .tabs > div.hidden {
+  display: none;
+}
+.tabSystem .tabs.center > div {
+  flex-grow: 1;
+}
+.tabSystem .tabs.center > div:first-child {
+  margin: 0;
+}
+.tabSystem .tabs.center .tab.current {
+  background-color: var(--main-color);
+}
+.tabSystem .content {
+  width: 100%;
+  display: none;
+}
+
+.tabSystem .content::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+.tabSystem .content::-webkit-scrollbar-track {
+  width: 0px;
+  height: 0px;
+}
+.tabSystem .content::-webkit-scrollbar-thumb {
+  width: 0px;
+  height: 0px;
+}
+.tabSystem .content::-webkit-scrollbar-corner {
+  width: 0px;
+  height: 0px;
+}
+.tabSystem .content.text {
+  padding: 20px;
+  justify-self: center;
+}
+.tabSystem .content.active {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  overflow-x: auto;
+  align-items: center;
+  gap: 5px;
+  border-bottom: var(--border);
+}
+/* Meduim screen */
+@media (min-width: 992px) {
+  .content {
+    display: none;
+  }
+  .content.text {
+    width: 650px;
+  }
+}

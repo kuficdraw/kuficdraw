@@ -1,0 +1,37 @@
+.toolbar {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+  width: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #eee;
+  border: var(--border);
+  border-width: 0.1px;
+  /* padding: 10px; */
+}
+
+.toolbar div {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-color: brown; */
+  width: 100%;
+  height: 50px;
+  font-size: 1.5em;
+  transition: all 100ms linear;
+}
+
+.toolbar div:hover {
+  color: var(--color-secondary);
+  font-size: 2em;
+}
+
+.toolbar div.active {
+  color: brown;
+  font-size: 2em;
+}

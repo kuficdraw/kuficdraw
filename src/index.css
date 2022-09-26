@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500&display=swap");
+
+body {
+  height: 100%;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "Cairo", sans-serif;
+  overflow: hidden;
+  background-color: #eee;
+  user-select: none;
+  /* direction: rtl; */
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --color-primary: #330000;
+  --color-secondary: #fa9600;
+  --border: solid 3px var(--color-secondary);
+  --ui-height: 35px;
+  --hover-color: #fa9600ad;
+}
+
+:any-link {
+  color: #303030;
+  text-decoration: none;
+}
+
+canvas[data-resize] {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+#root {
+  height: 100%;
+}
+
+[data-cursor="draw"] {
+  /* cursor: cell; */
+  cursor: url(./cursor/brush.png) 10 5, pointer;
+}
+[data-cursor="wipe"] {
+  /* cursor: cell; */
+  cursor: url(./cursor/wipe.png) 10 5, pointer;
+}
+[data-cursor="move"] {
+  cursor: grabbing;
+}
+[data-cursor="select"] {
+  cursor: crosshair;
+}
+[data-cursor="pan"] {
+  cursor: move;
+}
+[data-cursor="loading"] {
+  cursor: progress;
+}
+[data-cursor="ruler"] {
+  cursor: url(./cursor/ruler.png) 16 16, pointer;
+}

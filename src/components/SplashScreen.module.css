@@ -1,0 +1,61 @@
+.splash {
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: kuficLogoImage 1s infinite ease-in-out;
+}
+
+.splash .card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 200;
+  font-size: 15px;
+}
+
+.splash .card .logo {
+  width: 400px;
+  height: 400px;
+}
+
+.credits {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  bottom: 10px;
+}
+
+:any-link {
+  text-decoration: none;
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+@media only screen and (max-width: 767px) {
+  .splash .card .logo {
+    width: 70vw;
+    height: 70vw;
+    /* width: 70vw; */
+  }
+  .credits {
+    /* flex-direction: column; */
+    font-size: 10px;
+  }
+}
+
+@keyframes kuficLogoImage {
+  0% {
+    filter: grayscale(1);
+  }
+  50% {
+    filter: grayscale(0);
+  }
+  /* 100% {
+    filter: grayscale(0);
+  } */
+}
