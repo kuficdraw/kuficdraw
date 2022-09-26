@@ -6,7 +6,7 @@ export class KuficKeyboard {
   boardManager: KuficBoardManager;
   constructor(boardManager: KuficBoardManager) {
     this.boardManager = boardManager;
-    +this.boardManager.boardPaperScope.view.on(
+    this.boardManager.boardPaperScope.view.on(
       "keydown",
       (event: paper.KeyEvent) => this.handleKeyEvents(event)
     );
@@ -55,9 +55,10 @@ export class KuficKeyboard {
                 let parsedText = JSON.parse(textFromClip);
                 if (parsedText as Cell) {
                   let cellsFromClipboard: Cell[] = JSON.parse(textFromClip);
-                  let offset = this.boardManager.kuficMath.getBoardUnitFromPoint(
-                    { point: this.boardManager.currentMousePosition }
-                  );
+                  let offset =
+                    this.boardManager.kuficMath.getBoardUnitFromPoint({
+                      point: this.boardManager.currentMousePosition,
+                    });
                   this.boardManager.darwCellsToBoard({
                     cells: cellsFromClipboard,
                     offset: offset!,
@@ -155,9 +156,10 @@ export class KuficKeyboard {
                 let parsedText = JSON.parse(textFromClip);
                 if (parsedText as Cell) {
                   let cellsFromClipboard: Cell[] = JSON.parse(textFromClip);
-                  let offset = this.boardManager.kuficMath.getBoardUnitFromPoint(
-                    { point: this.boardManager.currentMousePosition }
-                  );
+                  let offset =
+                    this.boardManager.kuficMath.getBoardUnitFromPoint({
+                      point: this.boardManager.currentMousePosition,
+                    });
                   this.boardManager.darwCellsToBoard({
                     cells: cellsFromClipboard,
                     offset: offset!,

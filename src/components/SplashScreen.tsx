@@ -10,13 +10,13 @@ function SplashScreen() {
       <div className={Styles.credits}>
         <div>
           Developed by{" "}
-          <a href="https://twitter.com/7Eltantawy" target="_blank">
+          <a href="https://twitter.com/7Eltantawy" rel="external">
             Hassan Eltantawy{" "}
           </a>
         </div>
         <div>
           {" | "} Artwork by{" "}
-          <a href="https://twitter.com/ahmedelbablyy" target="_blank">
+          <a href="https://twitter.com/ahmedelbablyy" rel="external">
             @AhmedElbably
           </a>
         </div>

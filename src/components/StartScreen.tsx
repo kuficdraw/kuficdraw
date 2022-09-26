@@ -8,15 +8,13 @@ function StartScreen() {
   let [voidLength, setVoidLength] = useState(30);
   let [massLength, setMassLength] = useState(90);
   let [create, setCreate] = useState(false);
-  function changeVoid(value: number) {}
-  function changeMass(value: number) {}
   useEffect(() => {
-    document.getElementById("mass")!.addEventListener("input", function(evt) {
+    document.getElementById("mass")!.addEventListener("input", function (evt) {
       setMassLength(
         +(document.getElementById("mass")! as HTMLInputElement).value
       );
     });
-    document.getElementById("void")!.addEventListener("input", function(evt) {
+    document.getElementById("void")!.addEventListener("input", function (evt) {
       setVoidLength(
         +(document.getElementById("void")! as HTMLInputElement).value
       );
@@ -74,13 +72,13 @@ function StartScreen() {
               <div className={Styles.credits}>
                 <div>
                   <div>Developed By</div>
-                  <a href="https://twitter.com/7Eltantawy" target="_blank">
+                  <a href="https://twitter.com/7Eltantawy" rel="external">
                     @Hassan Eltantawy
                   </a>
                 </div>
                 <div>
                   <div>Artwork By</div>
-                  <a href="https://twitter.com/ahmedelbablyy" target="_blank">
+                  <a href="https://twitter.com/ahmedelbablyy" rel="external">
                     @Ahmed Elbably
                   </a>
                 </div>
