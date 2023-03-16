@@ -1,4 +1,3 @@
-import { Point } from "paper/dist/paper-core";
 import { Cell } from "../types/cell";
 import { KuficBoardManager } from "../KuficBoardManager";
 
@@ -43,6 +42,10 @@ export class KuficKeyboard {
       /// Ctrl + Shift +
       else if (Object(event).event.shiftKey) {
         switch (event.key) {
+          case "z":
+            console.log("Redo");
+            break;
+
           case "s":
             this.boardManager.kuficFileManager.exportSVG();
             break;
@@ -168,6 +171,9 @@ export class KuficKeyboard {
                 }
               } catch (error) {}
             });
+            break;
+          case "z":
+            console.log("Undo");
             break;
 
           default:
