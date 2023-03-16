@@ -127,7 +127,6 @@ export class KuficImageElement {
   }
 
   rotate(mouseDrag: paper.MouseEvent) {
-    let lastMouse;
     ///////// Rotate
     let rotateBy = 0;
     let rotateDirection = 1;

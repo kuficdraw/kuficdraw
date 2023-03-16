@@ -3,7 +3,6 @@ import { Cell } from "./types/cell";
 import { KuficNavigation } from "./utils/KuficNavigation";
 import { KuficMath } from "./utils/KuficMath";
 import { KuficTouch } from "./utils/KuficTouch";
-import { KuficSettingsGUI } from "./utils/KuficSettingsGUI";
 import { KuficFileManager } from "./utils/KuficFileManager";
 import { Point, Layer, Color } from "paper/dist/paper-core";
 import { KuficBoard } from "./types/kuficBoard";
@@ -116,7 +115,8 @@ export class KuficBoardManager {
   }
 
   setBoardBackground() {
-    this.boardPaperScope.view.element.style.backgroundColor = this.board.settings.color;
+    this.boardPaperScope.view.element.style.backgroundColor =
+      this.board.settings.color;
   }
 
   onResize() {

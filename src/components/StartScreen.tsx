@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { DialogMaker } from "../dialog/DialogMaker";
-import MsgDialog from "../dialog/dialogs/Msg";
 import KuficBoardCanvas from "../kufic_board/ui_components/KuficBoardCanvas";
 import FloatingLogo from "./FloatingLogo";
 import Styles from "./StartScreen.module.css";
@@ -44,7 +43,7 @@ function StartScreen() {
         <>
           <div className={Styles.startScreen}>
             <div className={Styles.card}>
-              <img className={Styles.logo} src="./kufic.png"></img>
+              <img className={Styles.logo} src="./kufic.png" alt=""></img>
               <form>
                 <label htmlFor="mass">الكتلـــة:</label>
                 <div className={Styles.field}>
