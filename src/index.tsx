@@ -1,20 +1,16 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
-import "./index.css";
+import ReactDOM from "react-dom";
+import StartScreen from "./components/StartScreen";
 import reportWebVitals from "./reportWebVitals";
 import "normalize.css";
-import StartScreen from "./components/StartScreen";
+import "./index.css";
 
-const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
-);
-root.render(
+ReactDOM.render(
   <React.StrictMode>
-    <>
-      <div id="popup"></div>
-      <StartScreen />
-    </>
-  </React.StrictMode>
+    <div id="popup"></div>
+    <StartScreen />
+  </React.StrictMode>,
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
