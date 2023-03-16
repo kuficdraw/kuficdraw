@@ -2,7 +2,7 @@ import { Attachment } from "./attachment";
 import { Cell } from "./cell";
 
 export interface KuficBoard {
-  version: number;
+  version: string;
   settings: KuficBoardSettings;
   cells: Cell[];
   attachments: Attachment[];
