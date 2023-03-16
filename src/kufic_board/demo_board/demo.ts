@@ -1,7 +1,7 @@
 import { KuficBoard } from "../types/kuficBoard";
 
 export let boardDemoEmpty: KuficBoard = {
-  version: 0,
+  version: "0.0.0",
   settings: {
     mass: 100,
     void: 50,
@@ -16,7 +16,7 @@ export let boardDemoEmpty: KuficBoard = {
 };
 
 export let boardDemoAppLogo: KuficBoard = {
-  version: 0,
+  version: "0.0.0",
   settings: {
     mass: 100,
     void: 20,
