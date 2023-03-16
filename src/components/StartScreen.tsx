@@ -3,11 +3,21 @@ import { DialogMaker } from "../dialog/DialogMaker";
 import KuficBoardCanvas from "../kufic_board/ui_components/KuficBoardCanvas";
 import FloatingLogo from "./FloatingLogo";
 import Styles from "./StartScreen.module.css";
+import { KuficLocalStorage } from "../kufic_board/local_storage/LocalStorage";
+import { KuficBoard } from "../kufic_board/types/kuficBoard";
 function StartScreen() {
   let [voidLength, setVoidLength] = useState(30);
   let [massLength, setMassLength] = useState(90);
   let [create, setCreate] = useState(false);
+  let [savedBoard, setSavedBoard] = useState<KuficBoard>();
+
   useEffect(() => {
+    const tempSavedBoard = KuficLocalStorage.getBoard();
+    if (tempSavedBoard !== null) {
+      setSavedBoard(tempSavedBoard);
+      setCreate(true);
+    }
+
     document.getElementById("mass")!.addEventListener("input", function (evt) {
       setMassLength(
         +(document.getElementById("mass")! as HTMLInputElement).value
@@ -37,6 +47,7 @@ function StartScreen() {
           <FloatingLogo />
           <KuficBoardCanvas
             boardSize={{ mass: massLength, void: voidLength }}
+            kuficBoard={savedBoard}
           />
         </>
       ) : (

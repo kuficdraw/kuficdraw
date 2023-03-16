@@ -1,5 +1,6 @@
 import { Layer, Point } from "paper/dist/paper-core";
 import { KuficBoardManager } from "../KuficBoardManager";
+import { KuficLocalStorage } from "../local_storage/LocalStorage";
 
 export class KuficDrawTool {
   boardManager: KuficBoardManager;
@@ -28,8 +29,11 @@ export class KuficDrawTool {
       (event: paper.MouseEvent) => this.handleMouseLeave(event)
     );
   }
-  handleMouseUp(event: paper.MouseEvent) {
+  async handleMouseUp(event: paper.MouseEvent) {
     this.boardManager.setCursorToCurrentMode();
+
+    await this.boardManager.prepareBoardToExport();
+    KuficLocalStorage.saveBoard(this.boardManager.board);
   }
 
   handleMouseLeave(event: paper.MouseEvent) {

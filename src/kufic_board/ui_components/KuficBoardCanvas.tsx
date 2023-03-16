@@ -2,19 +2,21 @@ import React, { useEffect, useState } from "react";
 // import Paper from "paper";
 import { PaperScope } from "paper/dist/paper-core";
 import { KuficBoardManager } from "../KuficBoardManager";
-import {
-  boardDemoAppLogo,
-  boardDemoEmpty,
-  boradToShow,
-} from "../demo_board/demo";
+import { boradToShow } from "../demo_board/demo";
 import { KuficKeyboard } from "../utils/KuficKeyboard";
 import { KuficSettingsGUI } from "../utils/KuficSettingsGUI";
 import Toolbar from "./Toolbar";
 import { Size } from "../types/size";
+import { KuficBoard } from "../types/kuficBoard";
 
-const KuficBoardCanvas = ({ boardSize }: { boardSize: Size }) => {
+const KuficBoardCanvas = ({
+  boardSize,
+  kuficBoard,
+}: {
+  boardSize?: Size;
+  kuficBoard?: KuficBoard;
+}) => {
   let scope: paper.PaperScope;
-  let board: KuficBoardManager;
   let [tool, setTool] = useState(<></>);
 
   window.onload = () => {
@@ -52,8 +54,15 @@ const KuficBoardCanvas = ({ boardSize }: { boardSize: Size }) => {
     ///
 
     let boardTomake = boradToShow;
-    boardTomake.settings.mass = boardSize.mass;
-    boardTomake.settings.void = boardSize.void;
+
+    if (boardSize !== undefined) {
+      boardTomake.settings.mass = boardSize.mass;
+      boardTomake.settings.void = boardSize.void;
+    }
+
+    if (kuficBoard !== undefined) {
+      boardTomake = kuficBoard;
+    }
 
     let board = new KuficBoardManager({
       scope: scope,
