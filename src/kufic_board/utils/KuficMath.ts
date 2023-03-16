@@ -14,17 +14,16 @@ export class KuficMath {
     cordX: number;
     cordY: number;
   }): paper.Point {
-    let total =
-      this.boardManager.board.settings.mass +
-      this.boardManager.board.settings.void;
+    const boardMass = this.boardManager.board.settings.mass;
+    const boardVoid = this.boardManager.board.settings.void;
+    let total = boardMass + boardVoid;
     let x, y;
     let cordXSign = cordX / Math.abs(cordX);
     let cordYSign = cordY / Math.abs(cordY);
     ///
     if (cordXSign > 0) {
       if (cordX % 2 === 0) {
-        x =
-          Math.trunc(cordX / 2) * total - this.boardManager.board.settings.void;
+        x = Math.trunc(cordX / 2) * total - boardVoid;
       } else {
         x = Math.trunc(cordX / 2) * total;
       }
@@ -32,15 +31,13 @@ export class KuficMath {
       if (cordX % 2 === 0) {
         x = Math.trunc(cordX / 2) * total;
       } else {
-        x =
-          Math.trunc(cordX / 2) * total - this.boardManager.board.settings.void;
+        x = Math.trunc(cordX / 2) * total - boardVoid;
       }
     }
     ///
     if (cordYSign > 0) {
       if (cordY % 2 === 0) {
-        y =
-          Math.trunc(cordY / 2) * total - this.boardManager.board.settings.void;
+        y = Math.trunc(cordY / 2) * total - boardVoid;
       } else {
         y = Math.trunc(cordY / 2) * total;
       }
@@ -48,18 +45,17 @@ export class KuficMath {
       if (cordY % 2 === 0) {
         y = Math.trunc(cordY / 2) * total;
       } else {
-        y =
-          Math.trunc(cordY / 2) * total - this.boardManager.board.settings.void;
+        y = Math.trunc(cordY / 2) * total - boardVoid;
       }
     }
     return new Point(x, y);
   }
   ///
   getBoardUnitFromPoint({ point }: { point: paper.Point }): paper.Point | null {
+    const boardMass = this.boardManager.board.settings.mass;
+    const boardVoid = this.boardManager.board.settings.void;
     if (point) {
-      let total =
-        this.boardManager.board.settings.mass +
-        this.boardManager.board.settings.void;
+      let total = boardMass + boardVoid;
       let boardX, boardY;
       ///
       let snapped = this.positionSnapCalculation(point.x, point.y);
@@ -113,9 +109,9 @@ export class KuficMath {
   }
   ///
   positionSnapCalculation(canvasX: number, canvasY: number) {
-    let totalSize =
-      this.boardManager.board.settings.mass +
-      this.boardManager.board.settings.void;
+    const boardMass = this.boardManager.board.settings.mass;
+    const boardVoid = this.boardManager.board.settings.void;
+    let totalSize = boardMass + boardVoid;
     let snapX = null,
       snapY = null;
     // X
@@ -133,25 +129,18 @@ export class KuficMath {
     // X Calculation
     if (snapX === null) {
       if (signX > 0) {
-        if (resetLengthX > this.boardManager.board.settings.mass) {
-          snapX =
-            Math.abs(totalCountX) * totalSize +
-            this.boardManager.board.settings.mass;
-        } else if (resetLengthX < this.boardManager.board.settings.mass) {
+        if (resetLengthX > boardMass) {
+          snapX = Math.abs(totalCountX) * totalSize + boardMass;
+        } else if (resetLengthX < boardMass) {
           snapX = Math.abs(totalCountX) * totalSize;
         } else {
-          snapX =
-            Math.abs(totalCountX) * totalSize +
-            this.boardManager.board.settings.mass;
+          snapX = Math.abs(totalCountX) * totalSize + boardMass;
         }
       } else if (signX < 0) {
-        if (resetLengthX > this.boardManager.board.settings.void) {
+        if (resetLengthX > boardVoid) {
           snapX = signX * (Math.abs(totalCountX) * totalSize + totalSize);
-        } else if (resetLengthX < this.boardManager.board.settings.void) {
-          snapX =
-            signX *
-            (Math.abs(totalCountX) * totalSize +
-              this.boardManager.board.settings.void);
+        } else if (resetLengthX < boardVoid) {
+          snapX = signX * (Math.abs(totalCountX) * totalSize + boardVoid);
         } else {
           snapX = 0;
         }
@@ -162,25 +151,18 @@ export class KuficMath {
     // Y Calculation
     if (snapY === null) {
       if (signY > 0) {
-        if (resetLengthY > this.boardManager.board.settings.mass) {
-          snapY =
-            Math.abs(totalCountY) * totalSize +
-            this.boardManager.board.settings.mass;
-        } else if (resetLengthY < this.boardManager.board.settings.mass) {
+        if (resetLengthY > boardMass) {
+          snapY = Math.abs(totalCountY) * totalSize + boardMass;
+        } else if (resetLengthY < boardMass) {
           snapY = Math.abs(totalCountY) * totalSize;
         } else {
-          snapY =
-            Math.abs(totalCountY) * totalSize +
-            this.boardManager.board.settings.mass;
+          snapY = Math.abs(totalCountY) * totalSize + boardMass;
         }
       } else if (signY < 0) {
-        if (resetLengthY > this.boardManager.board.settings.void) {
+        if (resetLengthY > boardVoid) {
           snapY = signY * (Math.abs(totalCountY) * totalSize + totalSize);
         } else {
-          snapY =
-            signY *
-            (Math.abs(totalCountY) * totalSize +
-              this.boardManager.board.settings.void);
+          snapY = signY * (Math.abs(totalCountY) * totalSize + boardVoid);
         }
       } else {
         snapY = 0;
@@ -196,14 +178,14 @@ export class KuficMath {
     width: number;
     height: number;
   } {
-    let totalSize =
-      this.boardManager.board.settings.mass +
-      this.boardManager.board.settings.void;
+    const boardMass = this.boardManager.board.settings.mass;
+    const boardVoid = this.boardManager.board.settings.void;
+    let totalSize = boardMass + boardVoid;
     let CellWidth, CellHeight;
     if (canvasX % totalSize === 0 && canvasY % totalSize === 0) {
       return {
-        width: this.boardManager.board.settings.mass,
-        height: this.boardManager.board.settings.mass,
+        width: boardMass,
+        height: boardMass,
       };
     }
     // X
@@ -214,35 +196,35 @@ export class KuficMath {
     let resetLengthY = Math.abs(canvasY % totalSize);
     // X Calculation
     if (signX > 0) {
-      if (resetLengthX >= this.boardManager.board.settings.mass) {
-        CellWidth = this.boardManager.board.settings.void;
+      if (resetLengthX >= boardMass) {
+        CellWidth = boardVoid;
       } else {
-        CellWidth = this.boardManager.board.settings.mass;
+        CellWidth = boardMass;
       }
     } else if (signX < 0) {
-      if (resetLengthX >= this.boardManager.board.settings.void) {
-        CellWidth = this.boardManager.board.settings.mass;
+      if (resetLengthX >= boardVoid) {
+        CellWidth = boardMass;
       } else {
-        CellWidth = this.boardManager.board.settings.void;
+        CellWidth = boardVoid;
       }
     } else {
-      CellWidth = this.boardManager.board.settings.mass;
+      CellWidth = boardMass;
     }
     // Y Calculation
     if (signY > 0) {
-      if (resetLengthY >= this.boardManager.board.settings.mass) {
-        CellHeight = this.boardManager.board.settings.void;
+      if (resetLengthY >= boardMass) {
+        CellHeight = boardVoid;
       } else {
-        CellHeight = this.boardManager.board.settings.mass;
+        CellHeight = boardMass;
       }
     } else if (signY < 0) {
-      if (resetLengthY >= this.boardManager.board.settings.void) {
-        CellHeight = this.boardManager.board.settings.mass;
+      if (resetLengthY >= boardVoid) {
+        CellHeight = boardMass;
       } else {
-        CellHeight = this.boardManager.board.settings.void;
+        CellHeight = boardVoid;
       }
     } else {
-      CellHeight = this.boardManager.board.settings.mass;
+      CellHeight = boardMass;
     }
     return {
       width: CellWidth,
