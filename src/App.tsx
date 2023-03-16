@@ -3,35 +3,27 @@ import React, { useEffect, useState } from "react";
 import SplashScreen from "./components/SplashScreen";
 import FloatingLogo from "./components/FloatingLogo";
 import { Size } from "./kufic_board/types/size";
-function App({ boardSize }: { boardSize: Size }) {
-  let [isLoading, setIsLoading] = useState(true);
+
+interface Props {
+  boardSize: Size;
+}
+
+const App: React.FC<Props> = ({ boardSize }) => {
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
+    const timerId = setTimeout(() => setIsLoading(false), 1000);
+    return () => clearTimeout(timerId);
   }, []);
 
   return isLoading ? (
-    <>
-      <SplashScreen />
-    </>
+    <SplashScreen />
   ) : (
     <>
-      {/* <UI /> */}
       <FloatingLogo />
       <KuficBoardCanvas boardSize={boardSize} />
     </>
   );
-  // return (
-  //   <>
-  //     <Canvas />
-  //   </>
-  //   // <>
-  //   //   <UI>
-  //   //     <Canvas />
-  //   //   </UI>
-  //   // </>
-  // );
-}
+};
 
 export default App;
